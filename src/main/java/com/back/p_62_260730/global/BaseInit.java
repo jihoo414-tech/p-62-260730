@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Configuration
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class BaseInit {
 
     private final PostService postService;
@@ -44,7 +45,6 @@ public class BaseInit {
         postService.write("제목1", "내용1");
         postService.write("제목2", "내용2");
     }
-    @Transactional
     void work2() {
         postService.findById(1);
     }
