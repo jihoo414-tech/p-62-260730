@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Setter
 @Getter
@@ -18,12 +20,16 @@ public class Post {
     private String title;
     @Column(columnDefinition = "TEXT" )
     private String content;
+    private LocalDateTime createDate;
+    private LocalDateTime modifyDate;
 
 
 
     public Post(String title, String content){
         this.title = title;
         this.content = content;
+        createDate = LocalDateTime.now();
+        modifyDate = createDate;
     }
 
 
