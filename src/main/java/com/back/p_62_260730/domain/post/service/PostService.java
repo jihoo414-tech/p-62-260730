@@ -3,11 +3,11 @@ package com.back.p_62_260730.domain.post.service;
 import com.back.p_62_260730.domain.post.entity.Post;
 import com.back.p_62_260730.domain.post.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-@Component
+@Service
 @RequiredArgsConstructor
 public class PostService {
 
