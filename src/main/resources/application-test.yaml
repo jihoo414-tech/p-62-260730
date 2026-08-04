@@ -1,0 +1,7 @@
+##application.yaml에 오버라이딩한 꼴이 된다.
+##필요한 부분만 적으면 됨.
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:db_dev;MODE=MySQL
+    ##jdbc:h2:mem으로 메모리 환경으로 만듦
