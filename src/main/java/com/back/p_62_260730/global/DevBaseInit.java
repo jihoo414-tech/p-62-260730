@@ -54,8 +54,8 @@ public class DevBaseInit {
         memberService.join("user3", "유저3");
 
 
-        postService.write("제목1", "내용1");
-        postService.write("제목2", "내용2");
+        postService.write("제목1", "내용1",3);
+        postService.write("제목2", "내용2",4);
     }
 
     void work2() {
