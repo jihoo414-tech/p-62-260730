@@ -1,9 +1,12 @@
+##spring은 이 파일은 무조건 읽는다. 그 뒤 dev환경인지 test환경인지 검사한 후 -dev, -test로 오버라이딩한다.
 server:
   port: 8070
 
 spring:
   application:
     name: p-62-260730
+  profiles:
+    active: dev
 
   output:
     ansi:

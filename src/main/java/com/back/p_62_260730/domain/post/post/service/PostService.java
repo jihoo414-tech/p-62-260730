@@ -1,7 +1,7 @@
-package com.back.p_62_260730.domain.post.service;
+package com.back.p_62_260730.domain.post.post.service;
 
-import com.back.p_62_260730.domain.post.entity.Post;
-import com.back.p_62_260730.domain.post.repository.PostRepository;
+import com.back.p_62_260730.domain.post.post.entity.Post;
+import com.back.p_62_260730.domain.post.post.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

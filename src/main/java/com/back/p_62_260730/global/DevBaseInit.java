@@ -1,25 +1,29 @@
 package com.back.p_62_260730.global;
 
-import com.back.p_62_260730.domain.post.entity.Post;
-import com.back.p_62_260730.domain.post.service.PostService;
+import com.back.p_62_260730.domain.post.member.service.MemberService;
+import com.back.p_62_260730.domain.post.post.entity.Post;
+import com.back.p_62_260730.domain.post.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Profile;
 import org.springframework.transaction.annotation.Transactional;
 
 @Configuration
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class BaseInit {
+@Profile("dev")
+public class DevBaseInit {
 
     private final PostService postService;
+    private final MemberService memberService;
 
     @Lazy
     @Autowired
-    private BaseInit self;
+    private DevBaseInit self;
 
 
 
@@ -43,6 +47,12 @@ public class BaseInit {
         if(postService.count() > 0) {
             return;
         }
+        memberService.join("systemUser", "시스템");
+        memberService.join("adminUser", "관리자");
+        memberService.join("user1", "유저1");
+        memberService.join("user2", "유저2");
+        memberService.join("user3", "유저3");
+
 
         postService.write("제목1", "내용1");
         postService.write("제목2", "내용2");

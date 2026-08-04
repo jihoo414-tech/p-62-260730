@@ -1,4 +1,4 @@
-package com.back.p_62_260730.domain.post.entity;
+package com.back.p_62_260730.domain.post.post.entity;
 
 
 import com.back.p_62_260730.global.BaseEntity;
