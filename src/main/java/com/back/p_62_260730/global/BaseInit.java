@@ -33,7 +33,7 @@ public class BaseInit {
 //                self.work3();
 //            }).start();
 
-            work4();
+            self.work4();
 
         };
     }
@@ -63,9 +63,12 @@ public class BaseInit {
         }
         postService.delete(post2);
     }
+
+
     @Transactional
     void work4() {
         Post post1 = postService.findById(1).get();
-        postService.modify(post1, "제목1-수정", "내용1-수정");
+        //@Transactional으로 인한 더티체킹에 따라 modify는 객체에서만 변경했어도 DB에 자동 반영
+        postService.modify(post1, "제목1-수정3", "내용1-수정3");
     }
 }
