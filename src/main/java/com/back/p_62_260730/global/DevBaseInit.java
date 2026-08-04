@@ -1,5 +1,7 @@
 package com.back.p_62_260730.global;
 
+import com.back.p_62_260730.domain.post.member.entity.Member;
+import com.back.p_62_260730.domain.post.member.repository.MemberRepository;
 import com.back.p_62_260730.domain.post.member.service.MemberService;
 import com.back.p_62_260730.domain.post.post.entity.Post;
 import com.back.p_62_260730.domain.post.post.service.PostService;
@@ -20,6 +22,7 @@ public class DevBaseInit {
 
     private final PostService postService;
     private final MemberService memberService;
+    private final MemberRepository memberRepository;
 
     @Lazy
     @Autowired
@@ -49,17 +52,22 @@ public class DevBaseInit {
         }
         memberService.join("systemUser", "시스템");
         memberService.join("adminUser", "관리자");
-        memberService.join("user1", "유저1");
-        memberService.join("user2", "유저2");
+        Member m1 = memberService.join("user1", "유저1");
+        Member m2 = memberService.join("user2", "유저2");
         memberService.join("user3", "유저3");
 
 
-        postService.write("제목1", "내용1",3);
-        postService.write("제목2", "내용2",4);
+        postService.write("제목1", "내용1",m1);
+        postService.write("제목2", "내용2",m2);
     }
 
     void work2() {
-        postService.findById(1);
+
+        Post post = postService.findById(1).get();
+        System.out.println(post.getTitle());
+        System.out.println(post.getContent());
+        System.out.println(post.getAuthor().getNickname());
+
     }
 
     @Transactional

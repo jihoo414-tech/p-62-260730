@@ -11,7 +11,7 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
 
-    public void join(String username, String nickname){
-        memberRepository.save(new Member(username,nickname));
+    public Member join(String username, String nickname){
+        return memberRepository.save(new Member(username,nickname));
     }
 }
